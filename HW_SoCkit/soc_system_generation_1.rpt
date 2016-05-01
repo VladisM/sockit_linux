@@ -1,0 +1,76 @@
+Info: Starting: Create HDL design files for synthesis
+Info: ip-generate --project-directory=/home/vladis/Plocha/own_desing_2/ --output-directory=/home/vladis/Plocha/own_desing_2/soc_system/synthesis/ --file-set=QUARTUS_SYNTH --report-file=sopcinfo:/home/vladis/Plocha/own_desing_2/soc_system.sopcinfo --report-file=html:/home/vladis/Plocha/own_desing_2/soc_system.html --report-file=qip:/home/vladis/Plocha/own_desing_2/soc_system/synthesis/soc_system.qip --report-file=cmp:/home/vladis/Plocha/own_desing_2/soc_system.cmp --report-file=svd --system-info=DEVICE_FAMILY="Cyclone V" --system-info=DEVICE=5CSXFC6D6F31C8 --system-info=DEVICE_SPEEDGRADE=8_H6 --component-file=/home/vladis/Plocha/own_desing_2/soc_system.qsys --language=VHDL
+Progress: Loading own_desing_2/soc_system.qsys
+Progress: Reading input file
+Progress: Adding clk [clock_source 13.0]
+Progress: Parameterizing module clk
+Progress: Adding hps [altera_hps 13.0.1]
+Progress: Parameterizing module hps
+Progress: Adding led [altera_avalon_pio 13.0.1.99.2]
+Progress: Parameterizing module led
+Progress: Adding pb [altera_avalon_pio 13.0.1.99.2]
+Progress: Parameterizing module pb
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: soc_system.hps: Peripheral EMAC1 pin mapping: TX_CLK:MIXED1IO0, TXD0:MIXED1IO1, TXD1:MIXED1IO2, TXD2:MIXED1IO3, TXD3:MIXED1IO4, RXD0:MIXED1IO5, MDIO:MIXED1IO6, MDC:MIXED1IO7, RX_CTL:MIXED1IO8, TX_CTL:MIXED1IO9, RX_CLK:MIXED1IO10, RXD1:MIXED1IO11, RXD2:MIXED1IO12, RXD3:MIXED1IO13
+Info: soc_system.hps: Peripheral SDIO pin mapping: CMD:FLASHIO0, D0:FLASHIO2, D1:FLASHIO3, CLK:FLASHIO9, D2:FLASHIO10, D3:FLASHIO11
+Info: soc_system.hps: Peripheral USB1 pin mapping: D0:EMACIO1, D1:EMACIO2, D2:EMACIO3, D3:EMACIO4, D4:EMACIO5, D5:EMACIO6, D6:EMACIO7, D7:EMACIO8, CLK:EMACIO10, STP:EMACIO11, DIR:EMACIO12, NXT:EMACIO13
+Info: soc_system.hps: Peripheral UART0 pin mapping: RX:GENERALIO17, TX:GENERALIO18
+Info: soc_system.pb: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
+Info: soc_system: Generating soc_system "soc_system" for QUARTUS_SYNTH
+Info: pipeline_bridge_swap_transform: After transform: 4 modules, 8 connections
+Info: No custom instruction connections, skipping transform 
+Info: merlin_translator_transform: After transform: 6 modules, 14 connections
+Info: merlin_domain_transform: After transform: 14 modules, 53 connections
+Info: merlin_router_transform: After transform: 18 modules, 65 connections
+Info: merlin_traffic_limiter_transform: After transform: 20 modules, 73 connections
+Info: merlin_burst_transform: After transform: 22 modules, 79 connections
+Info: reset_adaptation_transform: After transform: 24 modules, 83 connections
+Info: merlin_network_to_switch_transform: After transform: 31 modules, 99 connections
+Info: limiter_update_transform: After transform: 31 modules, 101 connections
+Info: merlin_mm_transform: After transform: 31 modules, 101 connections
+Info: hps: "Doing Pretransform for module: hps"
+Info: hps: Peripheral EMAC1 pin mapping: TX_CLK:MIXED1IO0, TXD0:MIXED1IO1, TXD1:MIXED1IO2, TXD2:MIXED1IO3, TXD3:MIXED1IO4, RXD0:MIXED1IO5, MDIO:MIXED1IO6, MDC:MIXED1IO7, RX_CTL:MIXED1IO8, TX_CTL:MIXED1IO9, RX_CLK:MIXED1IO10, RXD1:MIXED1IO11, RXD2:MIXED1IO12, RXD3:MIXED1IO13
+Info: hps: Peripheral SDIO pin mapping: CMD:FLASHIO0, D0:FLASHIO2, D1:FLASHIO3, CLK:FLASHIO9, D2:FLASHIO10, D3:FLASHIO11
+Info: hps: Peripheral USB1 pin mapping: D0:EMACIO1, D1:EMACIO2, D2:EMACIO3, D3:EMACIO4, D4:EMACIO5, D5:EMACIO6, D6:EMACIO7, D7:EMACIO8, CLK:EMACIO10, STP:EMACIO11, DIR:EMACIO12, NXT:EMACIO13
+Info: hps: Peripheral UART0 pin mapping: RX:GENERALIO17, TX:GENERALIO18
+Info: pipeline_bridge_swap_transform: After transform: 2 modules, 0 connections
+Info: No custom instruction connections, skipping transform 
+Info: No Avalon connections, skipping transform 
+Info: merlin_translator_transform: After transform: 2 modules, 0 connections
+Info: hps: "soc_system" instantiated altera_hps "hps"
+Info: led: Starting RTL generation for module 'soc_system_led'
+Info: led:   Generation command is [exec /home/vladis/.altera/13.0sp1/quartus/linux/perl/bin/perl -I /home/vladis/.altera/13.0sp1/quartus/common/ip/altera/common/perl/5.8.3 -I /home/vladis/.altera/13.0sp1/quartus/sopc_builder/bin/europa -I /home/vladis/.altera/13.0sp1/quartus/sopc_builder/bin/perl_lib -I /home/vladis/.altera/13.0sp1/quartus/sopc_builder/bin -I /home/vladis/.altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/common -I /home/vladis/.altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- /home/vladis/.altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=soc_system_led --dir=/tmp/alt6903_810273086394086611.dir/0001_led_gen/ --quartus_dir=/home/vladis/.altera/13.0sp1/quartus --verilog --config=/tmp/alt6903_810273086394086611.dir/0001_led_gen//soc_system_led_component_configuration.pl  --do_build_sim=0  ]
+Info: led: Done RTL generation for module 'soc_system_led'
+Info: led: "soc_system" instantiated altera_avalon_pio "led"
+Info: pb: Starting RTL generation for module 'soc_system_pb'
+Info: pb:   Generation command is [exec /home/vladis/.altera/13.0sp1/quartus/linux/perl/bin/perl -I /home/vladis/.altera/13.0sp1/quartus/common/ip/altera/common/perl/5.8.3 -I /home/vladis/.altera/13.0sp1/quartus/sopc_builder/bin/europa -I /home/vladis/.altera/13.0sp1/quartus/sopc_builder/bin/perl_lib -I /home/vladis/.altera/13.0sp1/quartus/sopc_builder/bin -I /home/vladis/.altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/common -I /home/vladis/.altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- /home/vladis/.altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=soc_system_pb --dir=/tmp/alt6903_810273086394086611.dir/0002_pb_gen/ --quartus_dir=/home/vladis/.altera/13.0sp1/quartus --verilog --config=/tmp/alt6903_810273086394086611.dir/0002_pb_gen//soc_system_pb_component_configuration.pl  --do_build_sim=0  ]
+Info: pb: Done RTL generation for module 'soc_system_pb'
+Info: pb: "soc_system" instantiated altera_avalon_pio "pb"
+Info: led_s1_translator: "soc_system" instantiated altera_merlin_slave_translator "led_s1_translator"
+Info: hps_h2f_lw_axi_master_agent: "soc_system" instantiated altera_merlin_axi_master_ni "hps_h2f_lw_axi_master_agent"
+Info: led_s1_translator_avalon_universal_slave_0_agent: "soc_system" instantiated altera_merlin_slave_agent "led_s1_translator_avalon_universal_slave_0_agent"
+Info: led_s1_translator_avalon_universal_slave_0_agent_rsp_fifo: "soc_system" instantiated altera_avalon_sc_fifo "led_s1_translator_avalon_universal_slave_0_agent_rsp_fifo"
+Info: addr_router: "soc_system" instantiated altera_merlin_router "addr_router"
+Info: id_router: "soc_system" instantiated altera_merlin_router "id_router"
+Info: limiter: "soc_system" instantiated altera_merlin_traffic_limiter "limiter"
+Info: burst_adapter: "soc_system" instantiated altera_merlin_burst_adapter "burst_adapter"
+Info: Reusing file /home/vladis/Plocha/own_desing_2/soc_system/synthesis/submodules/altera_merlin_address_alignment.sv
+Info: rst_controller: "soc_system" instantiated altera_reset_controller "rst_controller"
+Info: cmd_xbar_demux: "soc_system" instantiated altera_merlin_demultiplexer "cmd_xbar_demux"
+Info: cmd_xbar_mux: "soc_system" instantiated altera_merlin_multiplexer "cmd_xbar_mux"
+Info: rsp_xbar_demux: "soc_system" instantiated altera_merlin_demultiplexer "rsp_xbar_demux"
+Info: rsp_xbar_mux: "soc_system" instantiated altera_merlin_multiplexer "rsp_xbar_mux"
+Info: Reusing file /home/vladis/Plocha/own_desing_2/soc_system/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: fpga_interfaces: "hps" instantiated altera_interface_generator "fpga_interfaces"
+Info: pipeline_bridge_swap_transform: After transform: 1 modules, 0 connections
+Info: No custom instruction connections, skipping transform 
+Info: No Avalon connections, skipping transform 
+Info: merlin_translator_transform: After transform: 1 modules, 0 connections
+Info: hps_io: "hps" instantiated altera_hps_io "hps_io"
+Info: border: "hps_io" instantiated altera_interface_generator "border"
+Info: soc_system: Done soc_system" with 20 modules, 95 files, 2170057 bytes
+Info: ip-generate succeeded.
+Info: Finished: Create HDL design files for synthesis
