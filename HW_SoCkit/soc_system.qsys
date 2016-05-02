@@ -12,6 +12,14 @@
    element $${FILENAME}
    {
    }
+   element lfsr_0.avalon_slave_0
+   {
+      datum baseAddress
+      {
+         value = "32";
+         type = "String";
+      }
+   }
    element clk
    {
       datum _sortIndex
@@ -33,6 +41,14 @@
       datum _sortIndex
       {
          value = "2";
+         type = "int";
+      }
+   }
+   element lfsr_0
+   {
+      datum _sortIndex
+      {
+         value = "4";
          type = "int";
       }
    }
@@ -75,7 +91,7 @@
  <parameter name="projectName" value="SoC_Test.qpf" />
  <parameter name="sopcBorderPoints" value="false" />
  <parameter name="systemHash" value="1" />
- <parameter name="timeStamp" value="1461956653463" />
+ <parameter name="timeStamp" value="1462194010663" />
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
  <interface name="clk" internal="clk.clk_in" type="clock" dir="end" />
@@ -583,6 +599,9 @@
   <parameter name="width" value="8" />
   <parameter name="clockRate" value="50000000" />
  </module>
+ <module kind="lfsr" version="1.0" enabled="1" name="lfsr_0">
+  <parameter name="AUTO_CLOCK_CLOCK_RATE" value="50000000" />
+ </module>
  <connection
    kind="clock"
    version="13.0"
@@ -610,6 +629,17 @@
  </connection>
  <connection kind="reset" version="13.0" start="hps.h2f_reset" end="led.reset" />
  <connection kind="reset" version="13.0" start="hps.h2f_reset" end="pb.reset" />
+ <connection
+   kind="avalon"
+   version="13.0"
+   start="hps.h2f_lw_axi_master"
+   end="lfsr_0.avalon_slave_0">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x0020" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection kind="reset" version="13.0" start="hps.h2f_reset" end="lfsr_0.reset" />
+ <connection kind="clock" version="13.0" start="clk.clk" end="lfsr_0.clock" />
  <interconnectRequirement for="$system" name="qsys_mm.clockCrossingAdapter" value="HANDSHAKE" />
  <interconnectRequirement for="$system" name="qsys_mm.maxAdditionalLatency" value="1" />
 </system>

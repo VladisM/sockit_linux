@@ -1,5 +1,5 @@
 Flow report for SoC_Test
-Fri Apr 29 18:36:10 2016
+Mon May  2 16:10:13 2016
 Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -40,15 +40,15 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------------+
 ; Flow Summary                                                                          ;
 +-------------------------------------+-------------------------------------------------+
-; Flow Status                         ; Successful - Fri Apr 29 18:34:43 2016           ;
+; Flow Status                         ; Successful - Mon May  2 16:08:48 2016           ;
 ; Quartus II 32-bit Version           ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                       ; SoC_Test                                        ;
 ; Top-level Entity Name               ; SoC_Test                                        ;
 ; Family                              ; Cyclone V                                       ;
 ; Device                              ; 5CSXFC6D6F31C8ES                                ;
 ; Timing Models                       ; Preliminary                                     ;
-; Logic utilization (in ALMs)         ; 282 / 41,910 ( < 1 % )                          ;
-; Total registers                     ; 551                                             ;
+; Logic utilization (in ALMs)         ; 417 / 41,910 ( < 1 % )                          ;
+; Total registers                     ; 752                                             ;
 ; Total pins                          ; 115 / 499 ( 23 % )                              ;
 ; Total virtual pins                  ; 0                                               ;
 ; Total block memory bits             ; 0 / 5,662,720 ( 0 % )                           ;
@@ -69,7 +69,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 04/29/2016 18:29:30 ;
+; Start date & time ; 05/02/2016 16:03:19 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; SoC_Test            ;
 +-------------------+---------------------+
@@ -80,7 +80,8 @@ applicable agreement for further details.
 +-------------------------------------+--------------------------------------------------------------------------+---------------+--------------------------------+------------+
 ; Assignment Name                     ; Value                                                                    ; Default Value ; Entity Name                    ; Section Id ;
 +-------------------------------------+--------------------------------------------------------------------------+---------------+--------------------------------+------------+
-; COMPILER_SIGNATURE_ID               ; 35490506747667.146194737021623                                           ; --            ; --                             ; --         ;
+; BLOCK_DESIGN_NAMING                 ; MaxPlusII                                                                ; Auto          ; --                             ; --         ;
+; COMPILER_SIGNATURE_ID               ; 35490506747667.146219779929065                                           ; --            ; --                             ; --         ;
 ; ECO_REGENERATE_REPORT               ; On                                                                       ; Off           ; --                             ; --         ;
 ; HPS_ISW_FILE                        ; soc_system/synthesis/submodules/sequencer/sequencer_auto_inst_init.pre.c ; --            ; soc_system_hps_hps_io_border   ; --         ;
 ; HPS_ISW_FILE                        ; soc_system/synthesis/submodules/sequencer/emif.pre.xml                   ; --            ; soc_system_hps_hps_io_border   ; --         ;
@@ -180,9 +181,11 @@ applicable agreement for further details.
 ; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                                                      ; --            ; --                             ; --         ;
 ; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW                                    ; --            ; --                             ; --         ;
 ; PROJECT_OUTPUT_DIRECTORY            ; output_files                                                             ; --            ; --                             ; --         ;
-; SLD_INFO                            ; QSYS_NAME soc_system HAS_SOPCINFO 1 GENERATION_ID 1461947229             ; --            ; soc_system                     ; --         ;
+; SLD_INFO                            ; QSYS_NAME soc_system HAS_SOPCINFO 1 GENERATION_ID 1462197603             ; --            ; soc_system                     ; --         ;
 ; SOPCINFO_FILE                       ; soc_system/synthesis/../../soc_system.sopcinfo                           ; --            ; --                             ; --         ;
 ; SYNTHESIS_ONLY_QIP                  ; On                                                                       ; --            ; --                             ; --         ;
+; VHDL_INPUT_VERSION                  ; VHDL_2008                                                                ; VHDL_1993     ; --                             ; --         ;
+; VHDL_SHOW_LMF_MAPPING_MESSAGES      ; Off                                                                      ; --            ; --                             ; --         ;
 +-------------------------------------+--------------------------------------------------------------------------+---------------+--------------------------------+------------+
 
 
@@ -191,11 +194,11 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:16     ; 1.0                     ; 483 MB              ; 00:00:16                           ;
-; Fitter                    ; 00:04:16     ; 1.0                     ; 1791 MB             ; 00:04:15                           ;
-; Assembler                 ; 00:00:30     ; 1.0                     ; 483 MB              ; 00:00:30                           ;
-; TimeQuest Timing Analyzer ; 00:01:24     ; 1.0                     ; 1240 MB             ; 00:01:24                           ;
-; Total                     ; 00:06:26     ; --                      ; --                  ; 00:06:25                           ;
+; Analysis & Synthesis      ; 00:00:18     ; 1.0                     ; 480 MB              ; 00:00:18                           ;
+; Fitter                    ; 00:04:28     ; 1.0                     ; 1779 MB             ; 00:04:29                           ;
+; Assembler                 ; 00:00:32     ; 1.0                     ; 492 MB              ; 00:00:31                           ;
+; TimeQuest Timing Analyzer ; 00:01:23     ; 1.0                     ; 1244 MB             ; 00:01:22                           ;
+; Total                     ; 00:06:41     ; --                      ; --                  ; 00:06:40                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

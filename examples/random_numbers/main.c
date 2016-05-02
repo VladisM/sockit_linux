@@ -1,16 +1,12 @@
 /*
  * main.c
  * 
- * Short and simple test of accessing a memory mapped peripherals from
- * linux. This code should blink with LEDs on the kit.
- * 
- * This code is based on this example: 
- * https://zhehaomao.com/blog/fpga/2013/12/27/sockit-3.html
- * 
+ * Short example of reading random number from generator based on the 
+ * LFSR that is connected to lwh2f bus.
  * 
  * Author:  Vladislav Mlejnecký
  * Email:   st49545@student.upce.cz
- * Created: 16.04.2016
+ * Created: 02.05.2016
  * 
  * Copyright 2016 Vladislav <vladis@v-book>
  * 
@@ -41,10 +37,10 @@
 
 #define PAGE_SIZE 4096
 #define LWHPS2FPGA_BRIDGE_BASE 0xff200000
-#define BUTTON_OFFSET 0x0
+#define LFSR_OFFSET 0x20
 
 
-volatile unsigned char *buttons_register;
+volatile int *lfsr;
 void *bridge_map;
 
 
@@ -67,21 +63,14 @@ int main(int argc, char *argv[]){
 		exit(EXIT_FAILURE);
 	}
 	
-	// get the buttons address
-	buttons_register = (unsigned char *) (bridge_map + BUTTON_OFFSET);
-	
-	// reading buttons
-	if ((*buttons_register & 0x01) == 0x00) printf("first button is pressed");
-	else printf("first button is NOT pressed");
-	
-	if ((*buttons_register & 0x02) == 0x00) printf("second button is pressed");
-	else printf("second button is NOT pressed");
-	
-	if ((*buttons_register & 0x04) == 0x00) printf("third button is pressed");
-	else printf("third button is NOT pressed");
-	
-	if ((*buttons_register & 0x08) == 0x00) printf("fourth button is pressed");
-	else printf("fourth button is NOT pressed");
+	// get address
+	lfsr = (int *) (bridge_map + LFSR_OFFSET);
+		
+	// read number a print
+	int number = *lfsr;
+	printf("Generated number: ");
+	printf("%d", number);
+	printf("\n");
 	
 	// clean mapped memory
 	if (munmap(bridge_map, PAGE_SIZE) < 0) {

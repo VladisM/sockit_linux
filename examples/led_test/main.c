@@ -76,6 +76,8 @@ int main(int argc, char *argv[]){
 	*leds_register = 0x0A;
 	sleep(1);
 	*leds_register = 0x05;
+	sleep(1);
+	*leds_register = 0x00;
 	
 	// clean mapped memory
 	if (munmap(bridge_map, PAGE_SIZE) < 0) {

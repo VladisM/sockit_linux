@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(5CSXFC6D6F31ES) Path("/home/vladis/Plocha/HW_SoCkit/output_files/") File("SoC_Test.sof") MfrSpec(OpMask(1));
+		Device PartName(5CSXFC6D6F31ES) Path("/home/vladis/Plocha/sockit_linux/HW_SoCkit/output_files/") File("SoC_Test.sof") MfrSpec(OpMask(1));
 	P ActionCode(Ign)
 		Device PartName(SOCVHPS) MfrSpec(OpMask(0));
 

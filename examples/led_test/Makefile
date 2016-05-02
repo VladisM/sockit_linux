@@ -1,6 +1,6 @@
-CC=./../../toolchain/bin/arm-linux-gnueabihf-gcc
+CC=arm-linux-gnueabihf-gcc
 CFLAGS=-Wall -O2
-OUT=button_test
+OUT=led_test
 
 all: main.c
 	$(CC) $(CFLAGS) $(LDFLAGS) $< -o $(OUT)

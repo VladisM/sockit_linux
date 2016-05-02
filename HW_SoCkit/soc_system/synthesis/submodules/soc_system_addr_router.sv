@@ -47,23 +47,23 @@ module soc_system_addr_router_default_decode
      parameter DEFAULT_CHANNEL = 1,
                DEFAULT_WR_CHANNEL = -1,
                DEFAULT_RD_CHANNEL = -1,
-               DEFAULT_DESTID = 1 
+               DEFAULT_DESTID = 2 
    )
-  (output [87 - 87 : 0] default_destination_id,
-   output [2-1 : 0] default_wr_channel,
-   output [2-1 : 0] default_rd_channel,
-   output [2-1 : 0] default_src_channel
+  (output [89 - 88 : 0] default_destination_id,
+   output [3-1 : 0] default_wr_channel,
+   output [3-1 : 0] default_rd_channel,
+   output [3-1 : 0] default_src_channel
   );
 
   assign default_destination_id = 
-    DEFAULT_DESTID[87 - 87 : 0];
+    DEFAULT_DESTID[89 - 88 : 0];
 
   generate begin : default_decode
     if (DEFAULT_CHANNEL == -1) begin
       assign default_src_channel = '0;
     end
     else begin
-      assign default_src_channel = 2'b1 << DEFAULT_CHANNEL;
+      assign default_src_channel = 3'b1 << DEFAULT_CHANNEL;
     end
   end
   endgenerate
@@ -74,8 +74,8 @@ module soc_system_addr_router_default_decode
       assign default_rd_channel = '0;
     end
     else begin
-      assign default_wr_channel = 2'b1 << DEFAULT_WR_CHANNEL;
-      assign default_rd_channel = 2'b1 << DEFAULT_RD_CHANNEL;
+      assign default_wr_channel = 3'b1 << DEFAULT_WR_CHANNEL;
+      assign default_rd_channel = 3'b1 << DEFAULT_RD_CHANNEL;
     end
   end
   endgenerate
@@ -95,7 +95,7 @@ module soc_system_addr_router
     // Command Sink (Input)
     // -------------------
     input                       sink_valid,
-    input  [109-1 : 0]    sink_data,
+    input  [111-1 : 0]    sink_data,
     input                       sink_startofpacket,
     input                       sink_endofpacket,
     output                      sink_ready,
@@ -104,8 +104,8 @@ module soc_system_addr_router
     // Command Source (Output)
     // -------------------
     output                          src_valid,
-    output reg [109-1    : 0] src_data,
-    output reg [2-1 : 0] src_channel,
+    output reg [111-1    : 0] src_data,
+    output reg [3-1 : 0] src_channel,
     output                          src_startofpacket,
     output                          src_endofpacket,
     input                           src_ready
@@ -116,12 +116,12 @@ module soc_system_addr_router
     // -------------------------------------------------------
     localparam PKT_ADDR_H = 56;
     localparam PKT_ADDR_L = 36;
-    localparam PKT_DEST_ID_H = 87;
-    localparam PKT_DEST_ID_L = 87;
-    localparam PKT_PROTECTION_H = 102;
-    localparam PKT_PROTECTION_L = 100;
-    localparam ST_DATA_W = 109;
-    localparam ST_CHANNEL_W = 2;
+    localparam PKT_DEST_ID_H = 89;
+    localparam PKT_DEST_ID_L = 88;
+    localparam PKT_PROTECTION_H = 104;
+    localparam PKT_PROTECTION_L = 102;
+    localparam ST_DATA_W = 111;
+    localparam ST_CHANNEL_W = 3;
     localparam DECODER_TYPE = 0;
 
     localparam PKT_TRANS_WRITE = 59;
@@ -138,12 +138,13 @@ module soc_system_addr_router
     // -------------------------------------------------------
     localparam PAD0 = log2ceil(64'h10 - 64'h0); 
     localparam PAD1 = log2ceil(64'h20 - 64'h10); 
+    localparam PAD2 = log2ceil(64'h24 - 64'h20); 
     // -------------------------------------------------------
     // Work out which address bits are significant based on the
     // address range of the slaves. If the required width is too
     // large or too small, we use the address field width instead.
     // -------------------------------------------------------
-    localparam ADDR_RANGE = 64'h20;
+    localparam ADDR_RANGE = 64'h24;
     localparam RANGE_ADDR_WIDTH = log2ceil(ADDR_RANGE);
     localparam OPTIMIZED_ADDR_H = (RANGE_ADDR_WIDTH > PKT_ADDR_W) ||
                                   (RANGE_ADDR_WIDTH == 0) ?
@@ -163,7 +164,7 @@ module soc_system_addr_router
     assign src_endofpacket   = sink_endofpacket;
 
     wire [PKT_DEST_ID_W-1:0] default_destid;
-    wire [2-1 : 0] default_src_channel;
+    wire [3-1 : 0] default_src_channel;
 
 
 
@@ -187,15 +188,21 @@ module soc_system_addr_router
         // --------------------------------------------------
 
     // ( 0x0 .. 0x10 )
-    if ( {address[RG:PAD0],{PAD0{1'b0}}} == 5'h0   ) begin
-            src_channel = 2'b10;
-            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 1;
+    if ( {address[RG:PAD0],{PAD0{1'b0}}} == 6'h0   ) begin
+            src_channel = 3'b010;
+            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 2;
     end
 
     // ( 0x10 .. 0x20 )
-    if ( {address[RG:PAD1],{PAD1{1'b0}}} == 5'h10   ) begin
-            src_channel = 2'b01;
+    if ( {address[RG:PAD1],{PAD1{1'b0}}} == 6'h10   ) begin
+            src_channel = 3'b001;
             src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 0;
+    end
+
+    // ( 0x20 .. 0x24 )
+    if ( {address[RG:PAD2],{PAD2{1'b0}}} == 6'h20   ) begin
+            src_channel = 3'b100;
+            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 1;
     end
 
 end

@@ -5,8 +5,9 @@ Ukázkový projekt jak používat Linux na HPS. Je přiložen celý projekt
 pro Quartus ve složce HW_SoCkit kde je nakonfigurovaný základní HPS.
 
 V FPGA jsou dále na lw H2F sběrnici dva paralelní porty, se šířkou 
-8bitů. V následující konfiguraci:
+8bitů a jeden generátor náhodných čísel (32bit), v následující konfiguraci:
 
+* vstupní port	- generátor		offset 0x0000 0020
 * výstupní port - 4x LED  		offset 0x0000 0010
 * vstupní port	- 4x Tlačítko	offset 0x0000 0000	
 
