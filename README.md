@@ -42,3 +42,19 @@ včetně instalace toolchainu provede následovně.
 Obdobně postupujte pro ostatní ukázky s tím že toolchain samozřejmě stačí
 instalovat jen jednou. Po zkompilování programů je umístěte na vhodné 
 místo na paměťové kartě.
+
+Nahrazení přiložené distribuce, distribucí Debian
+---------------
+
+Pro spoustu činností může být základní distribuce linuxu instalovaná
+z dodaného CD ke kitu, příliš omezující. V tomto případě je vhodné
+tuto distribuci vyměnit za některou rozšířenější a s většími možnostmi.
+
+Jako vhodná distribuce se jeví například Debian. Nejjednodušší možný
+postup je prosté nahrazení rootfs. To lze učinit například generováním
+vlastního rootfs za pomoci programu debootstrap. 
+
+Celá náhrada rootfs spočívá v připojení paměťové karty s již zprovozněnou
+distribucí zmíněnou výše, smazáním celého obsahu oddílu s rootfs a poté
+vygenerování nového rootfs. Generování nového rootfs je dostatečně dobře popsáno
+například [zde](https://olimex.wordpress.com/2014/07/21/how-to-create-bare-minimum-debian-wheezy-rootfs-from-scratch/).
