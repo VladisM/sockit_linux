@@ -4,7 +4,7 @@ use ieee.numeric_std.all;
 
 entity SoC_Test is 
 	port(
-		clk_50m_fpga								  : in 	 std_logic;												-- clock
+		OSC_50_B8A									  : in 	 std_logic;												-- clock
 		
 		memory_mem_a                    		  : out   std_logic_vector(14 downto 0);              -- mem_a
 		memory_mem_ba                   		  : out   std_logic_vector(2 downto 0);               -- mem_ba
@@ -61,8 +61,27 @@ entity SoC_Test is
 		hps_0_hps_io_hps_io_uart0_inst_RX     : in    std_logic;                     					-- hps_io_uart0_inst_RX
       hps_0_hps_io_hps_io_uart0_inst_TX     : out   std_logic;                                  -- hps_io_uart0_inst_TX
 	
-		user_led_fpga								  : out std_logic_vector(3 downto 0);						-- leds 
-		user_pb_fpga								  : in std_logic_vector(3 downto 0)							-- push buttons
+		LED											  : out std_logic_vector(3 downto 0);						-- leds 
+		KEY											  : in std_logic_vector(3 downto 0);						-- push buttons
+		SW												  : in std_logic_vector(3 downto 0);							-- sw
+		
+		--data z AD převodníku kanálu A
+		ADA_D											  : in std_logic_vector(13 downto 0);
+		
+		--ovládání kanálu A AD převodníku
+		ADA_SPI_CS									  : out std_logic;
+		ADA_OE										  : out std_logic;
+		
+		--ovládání kanálu B AD převodníku
+		ADB_SPI_CS									  : out std_logic;
+		ADB_OE										  : out std_logic;
+		
+		--data do DA převodníku kanál A
+		DA												  : out std_logic_vector(13 downto 0);
+				
+		--hodiny pro převodníkovou kartu
+		FPGA_CLK_A_P								  : out std_logic;
+		FPGA_CLK_A_N								  : out std_logic
 	);
 end entity SoC_Test;
 
@@ -124,23 +143,109 @@ architecture main of SoC_Test is
             hps_io_hps_io_uart0_inst_RX     : in    std_logic                     := 'X';             -- hps_io_uart0_inst_RX
             hps_io_hps_io_uart0_inst_TX     : out   std_logic;                                        -- hps_io_uart0_inst_TX
             led_external_connection_export  : out   std_logic_vector(7 downto 0);                     -- export
-            pb_external_connection_export   : in    std_logic_vector(7 downto 0)  := (others => 'X')  -- export
+            pb_external_connection_export   : in    std_logic_vector(7 downto 0)  := (others => 'X'); -- export
+				fir_external_connection_export  : out   std_logic_vector(7 downto 0)                      -- export
         );
     end component soc_system;
+
+	component fir is
+		port (
+			clk              : in  std_logic                     := 'X';             -- clk
+			reset_n          : in  std_logic                     := 'X';             -- reset_n
+			ast_sink_data    : in  std_logic_vector(16 downto 0) := (others => 'X'); -- data
+			ast_sink_valid   : in  std_logic                     := 'X';             -- valid
+			ast_sink_error   : in  std_logic_vector(1 downto 0)  := (others => 'X'); -- error
+			ast_source_data  : out std_logic_vector(36 downto 0);                    -- data
+			ast_source_valid : out std_logic;                                        -- valid
+			ast_source_error : out std_logic_vector(1 downto 0)                      -- error
+		);
+	end component fir;
+
+	component pll is
+		port (
+			refclk   : in  std_logic := 'X'; -- clk
+			rst      : in  std_logic := 'X'; -- reset
+			outclk_0 : out std_logic;        -- clk
+			locked   : out std_logic         -- export
+		);
+	end component pll;
+	
+	component output_selector is 
+		port(
+			input_data: in std_logic_vector(36 downto 0);
+			output_data: out std_logic_vector(13 downto 0);
+			bank_select: in std_logic_vector(2 downto 0)
+		);
+	end component output_selector;
 
 	 signal user_led_fpga_signal: std_logic_vector(7 downto 0);
 	 signal user_pb_fpga_signal: std_logic_vector(7 downto 0);
 	 
+	 --65MHz hodiny od PLL pro samplování AD/DA a filtr
+	 signal clk_65m: std_logic;
+	 --signál od pll informuje o jejím stavu
+	 signal pll_locked_signal: std_logic;
+	 
+	 --vstup dat do FIR (pozor, horní 3 bity nastavují banku)
+	 signal data_input_to_fir: std_logic_vector(16 downto 0);
+	 
+	 --výstup dat z FIR
+	 signal data_output_from_fir: std_logic_vector(36 downto 0);
+	 
+	 --kopr
+	 signal unused_signal_1: std_logic;
+	 signal unused_signal_2: std_logic_vector(1 downto 0);
+	 
+	 --nastavení banky pro fir
+	 signal fir_bank_select: std_logic_vector(2 downto 0);
+	 
 	 begin
 	 
-	 user_pb_fpga_signal(3 downto 0) <= user_pb_fpga;
-	 user_led_fpga <= user_led_fpga_signal(3 downto 0);
+	 --ledky a tlačítka
+	 user_pb_fpga_signal(3 downto 0) <= KEY;
+	 user_pb_fpga_signal(7 downto 4) <= SW;
+	 LED <= user_led_fpga_signal(3 downto 0);
 	 
-	 user_pb_fpga_signal(7 downto 4) <= "0000";
+	 --připojení vstupu dat pro fir
+	 data_input_to_fir(13 downto 0) <= ADA_D;
+	 data_input_to_fir(16 downto 14) <= fir_bank_select(2 downto 0);
+	 
+	 --nastavení kanálu A AD převodníku
+	 ADA_SPI_CS <= '1';
+	 ADA_OE <= '0';
+	 
+	 --nastavení kanálu B AD převodníku (výstup vypnut)
+	 ADB_SPI_CS <= '1';
+	 ADB_OE <= '1';
+	 
+	 --hodny pro kartu s převodníky
+	 FPGA_CLK_A_P <= clk_65m;
+	 FPGA_CLK_A_N <= not(clk_65m);
+	 
+	 pll0: component pll port map(
+		refclk => OSC_50_B8A,
+		rst => '0',
+		outclk_0 => clk_65m,
+		locked => pll_locked_signal);
+	 
+	fir0: component fir port map(
+		clk => clk_65m,
+		reset_n => '1',
+		ast_sink_data => data_input_to_fir,   --in  std_logic_vector(16 downto 0) data včetně bank select
+		ast_sink_valid => '1',
+		ast_sink_error => "00",
+		ast_source_data => data_output_from_fir,  -- out std_logic_vector(36 downto 0) data výstup do DA převodníku
+		ast_source_valid => unused_signal_1, --tohle dát do kopru
+		ast_source_error => unused_signal_2); --toto taky
+	 
+	 sel0: component output_selector port map(
+		bank_select => fir_bank_select(2 downto 0),
+		input_data => data_output_from_fir,
+		output_data => DA);
 	 
     u0 : component soc_system
         port map (
-            clk_clk                         => clk_50m_fpga,                          --                     clk.clk
+            clk_clk                         => OSC_50_B8A,	                          --                     clk.clk
 				reset_reset_n                   => '1',					                    --                   reset.reset_n
 				memory_mem_a                    => memory_mem_a,                          --                  memory.mem_a
 				memory_mem_ba                   => memory_mem_ba,                         --                        .mem_ba
@@ -193,7 +298,8 @@ architecture main of SoC_Test is
 				hps_io_hps_io_uart0_inst_RX     => hps_0_hps_io_hps_io_uart0_inst_RX,     --                        .hps_io_uart0_inst_RX
 				hps_io_hps_io_uart0_inst_TX     => hps_0_hps_io_hps_io_uart0_inst_TX,     --                        .hps_io_uart0_inst_TX
             led_external_connection_export  => user_led_fpga_signal,    				  -- led_external_connection.export
-            pb_external_connection_export   => user_pb_fpga_signal  	   				  --  pb_external_connection.export
+            pb_external_connection_export   => user_pb_fpga_signal,  	   				  --  pb_external_connection.export
+				fir_external_connection_export(2 downto 0)  => fir_bank_select                        -- export
         );
 
 end architecture;

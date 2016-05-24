@@ -43,6 +43,12 @@ Obdobně postupujte pro ostatní ukázky s tím že toolchain samozřejmě stač
 instalovat jen jednou. Po zkompilování programů je umístěte na vhodné 
 místo na paměťové kartě.
 
+Jinou možností je použítí skriptu který zpompiluje všechny programy ve
+složce examples a přesune výsledné binárky do složky bin. Skript spustíte
+následovně.
+
+	~$ sh ./make_examples.sh
+
 Nahrazení přiložené distribuce, distribucí Debian
 ---------------
 

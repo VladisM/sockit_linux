@@ -1,0 +1,203 @@
+Restore Archived Project report for SoC_Test
+Tue May 24 14:48:26 2016
+Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Restore Archived Project Summary
+  3. Restore Archived Project Messages
+  4. Files Restored
+  5. Files Not Restored
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------+
+; Restore Archived Project Summary                                        ;
++---------------------------------+---------------------------------------+
+; Restore Archived Project Status ; Successful - Tue May 24 14:48:26 2016 ;
+; Revision Name                   ; SoC_Test                              ;
+; Top-level Entity Name           ; SoC_Test                              ;
+; Family                          ; Cyclone V                             ;
++---------------------------------+---------------------------------------+
+
+
++-----------------------------------+
+; Restore Archived Project Messages ;
++-----------------------------------+
+Info: Successfully restored '/home/vladis/Plocha/HW_SoCkit/SoC_Test_tmp_archive.qar' into the '/home/vladis/Plocha/HW_SoCkit_copy/' directory
+Info: Generated report 'SoC_Test.restore.rpt'
+
+
++-------------------------------------------------------------------------------------------------+
+; Files Restored                                                                                  ;
++-------------------------------------------------------------------------------------------------+
+; File Name                                                                                       ;
++-------------------------------------------------------------------------------------------------+
+; SoC_Test.qpf                                                                                    ;
+; SoC_Test.qsf                                                                                    ;
+; SoC_Test.vhd                                                                                    ;
+; fir.cmp                                                                                         ;
+; fir.qip                                                                                         ;
+; fir.sip                                                                                         ;
+; fir.spd                                                                                         ;
+; fir.vhd                                                                                         ;
+; fir/altera_avalon_sc_fifo.v                                                                     ;
+; fir/auk_dspip_avalon_streaming_controller_hpfir.vhd                                             ;
+; fir/auk_dspip_avalon_streaming_sink_hpfir.vhd                                                   ;
+; fir/auk_dspip_avalon_streaming_source_hpfir.vhd                                                 ;
+; fir/auk_dspip_lib_pkg_hpfir.vhd                                                                 ;
+; fir/auk_dspip_math_pkg_hpfir.vhd                                                                ;
+; fir/auk_dspip_roundsat_hpfir.vhd                                                                ;
+; fir/dspba_library.vhd                                                                           ;
+; fir/dspba_library_package.vhd                                                                   ;
+; fir/fir_0002.sdc                                                                                ;
+; fir/fir_0002.vhd                                                                                ;
+; fir/fir_0002_ast.vhd                                                                            ;
+; fir/fir_0002_rtl.vhd                                                                            ;
+; fir_sim/altera_avalon_sc_fifo.v                                                                 ;
+; fir_sim/auk_dspip_avalon_streaming_controller_hpfir.vhd                                         ;
+; fir_sim/auk_dspip_avalon_streaming_sink_hpfir.vhd                                               ;
+; fir_sim/auk_dspip_avalon_streaming_source_hpfir.vhd                                             ;
+; fir_sim/auk_dspip_lib_pkg_hpfir.vhd                                                             ;
+; fir_sim/auk_dspip_math_pkg_hpfir.vhd                                                            ;
+; fir_sim/auk_dspip_roundsat_hpfir.vhd                                                            ;
+; fir_sim/dspba_library.vhd                                                                       ;
+; fir_sim/dspba_library_package.vhd                                                               ;
+; fir_sim/fir.vhd                                                                                 ;
+; fir_sim/fir_ast.vhd                                                                             ;
+; fir_sim/fir_coef_int.txt                                                                        ;
+; fir_sim/fir_input.txt                                                                           ;
+; fir_sim/fir_mlab.m                                                                              ;
+; fir_sim/fir_model.m                                                                             ;
+; fir_sim/fir_msim.tcl                                                                            ;
+; fir_sim/fir_nativelink.tcl                                                                      ;
+; fir_sim/fir_param.txt                                                                           ;
+; fir_sim/fir_rtl.vhd                                                                             ;
+; fir_sim/fir_tb.vhd                                                                              ;
+; incremental_db/compiled_partitions/SoC_Test.db_info                                             ;
+; input_schematics_files/LSFR/LFSR.bdf                                                            ;
+; input_schematics_files/LSFR/number_generator.vhd                                                ;
+; lfsr_hw.tcl                                                                                     ;
+; output_files/Chain1.cdf                                                                         ;
+; output_files/SoC_Test.cdf                                                                       ;
+; output_selector.vhd                                                                             ;
+; pll.cmp                                                                                         ;
+; pll.qip                                                                                         ;
+; pll.sip                                                                                         ;
+; pll.spd                                                                                         ;
+; pll.vhd                                                                                         ;
+; pll/pll_0002.qip                                                                                ;
+; pll/pll_0002.v                                                                                  ;
+; pll_sim/pll.vho                                                                                 ;
+; soc_system.cmp                                                                                  ;
+; soc_system.qsys                                                                                 ;
+; soc_system.sopcinfo                                                                             ;
+; soc_system/synthesis/soc_system.qip                                                             ;
+; soc_system/synthesis/soc_system.vhd                                                             ;
+; soc_system/synthesis/soc_system_led_s1_translator.vhd                                           ;
+; soc_system/synthesis/soc_system_led_s1_translator_avalon_universal_slave_0_agent_rdata_fifo.vhd ;
+; soc_system/synthesis/soc_system_led_s1_translator_avalon_universal_slave_0_agent_rsp_fifo.vhd   ;
+; soc_system/synthesis/soc_system_lfsr_0_avalon_slave_0_translator.vhd                            ;
+; soc_system/synthesis/soc_system_pb_s1_translator.vhd                                            ;
+; soc_system/synthesis/submodules/altdq_dqs2_acv_connect_to_hard_phy_cyclonev.sv                  ;
+; soc_system/synthesis/submodules/altera_avalon_sc_fifo.v                                         ;
+; soc_system/synthesis/submodules/altera_avalon_st_pipeline_base.v                                ;
+; soc_system/synthesis/submodules/altera_mem_if_dll_cyclonev.sv                                   ;
+; soc_system/synthesis/submodules/altera_mem_if_hard_memory_controller_top_cyclonev.sv            ;
+; soc_system/synthesis/submodules/altera_mem_if_hhp_qseq_synth_top.v                              ;
+; soc_system/synthesis/submodules/altera_mem_if_oct_cyclonev.sv                                   ;
+; soc_system/synthesis/submodules/altera_merlin_address_alignment.sv                              ;
+; soc_system/synthesis/submodules/altera_merlin_arbitrator.sv                                     ;
+; soc_system/synthesis/submodules/altera_merlin_axi_master_ni.sv                                  ;
+; soc_system/synthesis/submodules/altera_merlin_burst_adapter.sv                                  ;
+; soc_system/synthesis/submodules/altera_merlin_burst_uncompressor.sv                             ;
+; soc_system/synthesis/submodules/altera_merlin_slave_agent.sv                                    ;
+; soc_system/synthesis/submodules/altera_merlin_slave_translator.sv                               ;
+; soc_system/synthesis/submodules/altera_merlin_traffic_limiter.sv                                ;
+; soc_system/synthesis/submodules/altera_reset_controller.sdc                                     ;
+; soc_system/synthesis/submodules/altera_reset_controller.v                                       ;
+; soc_system/synthesis/submodules/altera_reset_synchronizer.v                                     ;
+; soc_system/synthesis/submodules/hps.pre.xml                                                     ;
+; soc_system/synthesis/submodules/hps_sdram.v                                                     ;
+; soc_system/synthesis/submodules/hps_sdram_p0.ppf                                                ;
+; soc_system/synthesis/submodules/hps_sdram_p0.sdc                                                ;
+; soc_system/synthesis/submodules/hps_sdram_p0.sv                                                 ;
+; soc_system/synthesis/submodules/hps_sdram_p0_acv_hard_addr_cmd_pads.v                           ;
+; soc_system/synthesis/submodules/hps_sdram_p0_acv_hard_io_pads.v                                 ;
+; soc_system/synthesis/submodules/hps_sdram_p0_acv_hard_memphy.v                                  ;
+; soc_system/synthesis/submodules/hps_sdram_p0_acv_ldc.v                                          ;
+; soc_system/synthesis/submodules/hps_sdram_p0_altdqdqs.v                                         ;
+; soc_system/synthesis/submodules/hps_sdram_p0_clock_pair_generator.v                             ;
+; soc_system/synthesis/submodules/hps_sdram_p0_generic_ddio.v                                     ;
+; soc_system/synthesis/submodules/hps_sdram_p0_iss_probe.v                                        ;
+; soc_system/synthesis/submodules/hps_sdram_p0_parameters.tcl                                     ;
+; soc_system/synthesis/submodules/hps_sdram_p0_phy_csr.sv                                         ;
+; soc_system/synthesis/submodules/hps_sdram_p0_pin_assignments.tcl                                ;
+; soc_system/synthesis/submodules/hps_sdram_p0_pin_map.tcl                                        ;
+; soc_system/synthesis/submodules/hps_sdram_p0_report_timing.tcl                                  ;
+; soc_system/synthesis/submodules/hps_sdram_p0_report_timing_core.tcl                             ;
+; soc_system/synthesis/submodules/hps_sdram_p0_reset.v                                            ;
+; soc_system/synthesis/submodules/hps_sdram_p0_reset_sync.v                                       ;
+; soc_system/synthesis/submodules/hps_sdram_p0_timing.tcl                                         ;
+; soc_system/synthesis/submodules/hps_sdram_pll.sv                                                ;
+; soc_system/synthesis/submodules/number_generator.vhd                                            ;
+; soc_system/synthesis/submodules/sequencer/alt_types.pre.h                                       ;
+; soc_system/synthesis/submodules/sequencer/emif.pre.xml                                          ;
+; soc_system/synthesis/submodules/sequencer/sdram_io.pre.h                                        ;
+; soc_system/synthesis/submodules/sequencer/sequencer.pre.c                                       ;
+; soc_system/synthesis/submodules/sequencer/sequencer.pre.h                                       ;
+; soc_system/synthesis/submodules/sequencer/sequencer_auto.pre.h                                  ;
+; soc_system/synthesis/submodules/sequencer/sequencer_auto_ac_init.pre.c                          ;
+; soc_system/synthesis/submodules/sequencer/sequencer_auto_inst_init.pre.c                        ;
+; soc_system/synthesis/submodules/sequencer/sequencer_defines.pre.h                               ;
+; soc_system/synthesis/submodules/sequencer/system.pre.h                                          ;
+; soc_system/synthesis/submodules/sequencer/tclrpt.pre.c                                          ;
+; soc_system/synthesis/submodules/sequencer/tclrpt.pre.h                                          ;
+; soc_system/synthesis/submodules/soc_system_addr_router.sv                                       ;
+; soc_system/synthesis/submodules/soc_system_cmd_xbar_demux.sv                                    ;
+; soc_system/synthesis/submodules/soc_system_cmd_xbar_mux.sv                                      ;
+; soc_system/synthesis/submodules/soc_system_hps.v                                                ;
+; soc_system/synthesis/submodules/soc_system_hps_fpga_interfaces.sv                               ;
+; soc_system/synthesis/submodules/soc_system_hps_hps_io.v                                         ;
+; soc_system/synthesis/submodules/soc_system_hps_hps_io_border.sv                                 ;
+; soc_system/synthesis/submodules/soc_system_id_router.sv                                         ;
+; soc_system/synthesis/submodules/soc_system_irq_mapper.sv                                        ;
+; soc_system/synthesis/submodules/soc_system_led.v                                                ;
+; soc_system/synthesis/submodules/soc_system_pb.v                                                 ;
+; soc_system/synthesis/submodules/soc_system_rsp_xbar_demux.sv                                    ;
+; soc_system/synthesis/submodules/soc_system_rsp_xbar_mux.sv                                      ;
+; stp1.stp                                                                                        ;
+; stp1_auto_stripped.stp                                                                          ;
+; assignment_defaults.qdf                                                                         ;
++-------------------------------------------------------------------------------------------------+
+
+
++--------------------+
+; Files Not Restored ;
++--------------------+
+; File Name          ;
++--------------------+
+
+

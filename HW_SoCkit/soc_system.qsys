@@ -28,6 +28,14 @@
          type = "int";
       }
    }
+   element fir
+   {
+      datum _sortIndex
+      {
+         value = "5";
+         type = "int";
+      }
+   }
    element hps
    {
       datum _sortIndex
@@ -68,6 +76,14 @@
          type = "String";
       }
    }
+   element fir.s1
+   {
+      datum baseAddress
+      {
+         value = "48";
+         type = "String";
+      }
+   }
    element pb.s1
    {
       datum baseAddress
@@ -91,7 +107,7 @@
  <parameter name="projectName" value="SoC_Test.qpf" />
  <parameter name="sopcBorderPoints" value="false" />
  <parameter name="systemHash" value="1" />
- <parameter name="timeStamp" value="1462194010663" />
+ <parameter name="timeStamp" value="1463064785460" />
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
  <interface name="clk" internal="clk.clk_in" type="clock" dir="end" />
@@ -106,6 +122,11 @@
  <interface
    name="pb_external_connection"
    internal="pb.external_connection"
+   type="conduit"
+   dir="end" />
+ <interface
+   name="fir_external_connection"
+   internal="fir.external_connection"
    type="conduit"
    dir="end" />
  <module kind="clock_source" version="13.0" enabled="1" name="clk">
@@ -602,6 +623,20 @@
  <module kind="lfsr" version="1.0" enabled="1" name="lfsr_0">
   <parameter name="AUTO_CLOCK_CLOCK_RATE" value="50000000" />
  </module>
+ <module kind="altera_avalon_pio" version="13.0.1.99.2" enabled="1" name="fir">
+  <parameter name="bitClearingEdgeCapReg" value="false" />
+  <parameter name="bitModifyingOutReg" value="false" />
+  <parameter name="captureEdge" value="false" />
+  <parameter name="direction" value="Output" />
+  <parameter name="edgeType" value="RISING" />
+  <parameter name="generateIRQ" value="false" />
+  <parameter name="irqType" value="LEVEL" />
+  <parameter name="resetValue" value="0" />
+  <parameter name="simDoTestBenchWiring" value="false" />
+  <parameter name="simDrivenValue" value="0" />
+  <parameter name="width" value="8" />
+  <parameter name="clockRate" value="50000000" />
+ </module>
  <connection
    kind="clock"
    version="13.0"
@@ -640,6 +675,17 @@
  </connection>
  <connection kind="reset" version="13.0" start="hps.h2f_reset" end="lfsr_0.reset" />
  <connection kind="clock" version="13.0" start="clk.clk" end="lfsr_0.clock" />
+ <connection kind="clock" version="13.0" start="clk.clk" end="fir.clk" />
+ <connection
+   kind="avalon"
+   version="13.0"
+   start="hps.h2f_lw_axi_master"
+   end="fir.s1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x0030" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection kind="reset" version="13.0" start="hps.h2f_reset" end="fir.reset" />
  <interconnectRequirement for="$system" name="qsys_mm.clockCrossingAdapter" value="HANDSHAKE" />
  <interconnectRequirement for="$system" name="qsys_mm.maxAdditionalLatency" value="1" />
 </system>
