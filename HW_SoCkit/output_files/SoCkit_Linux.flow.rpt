@@ -1,0 +1,209 @@
+Flow report for SoCkit_Linux
+Mon May 30 15:14:30 2016
+Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Flow Summary
+  3. Flow Settings
+  4. Flow Non-Default Global Settings
+  5. Flow Elapsed Time
+  6. Flow OS Summary
+  7. Flow Log
+  8. Flow Messages
+  9. Flow Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++---------------------------------------------------------------------------------------+
+; Flow Summary                                                                          ;
++-------------------------------------+-------------------------------------------------+
+; Flow Status                         ; Successful - Mon May 30 15:14:30 2016           ;
+; Quartus II 32-bit Version           ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
+; Revision Name                       ; SoCkit_Linux                                    ;
+; Top-level Entity Name               ; SoCkit_Linux                                    ;
+; Family                              ; Cyclone V                                       ;
+; Device                              ; 5CSXFC6D6F31C8ES                                ;
+; Timing Models                       ; Preliminary                                     ;
+; Logic utilization (in ALMs)         ; N/A                                             ;
+; Total registers                     ; 553                                             ;
+; Total pins                          ; 107                                             ;
+; Total virtual pins                  ; 0                                               ;
+; Total block memory bits             ; 0                                               ;
+; Total DSP Blocks                    ; 0                                               ;
+; Total HSSI RX PCSs                  ; 0                                               ;
+; Total HSSI PMA RX Deserializers     ; 0                                               ;
+; Total HSSI PMA RX ATT Deserializers ; 0                                               ;
+; Total HSSI TX PCSs                  ; 0                                               ;
+; Total HSSI PMA TX Serializers       ; 0                                               ;
+; Total HSSI PMA TX ATT Serializers   ; 0                                               ;
+; Total PLLs                          ; 0                                               ;
+; Total DLLs                          ; 1                                               ;
++-------------------------------------+-------------------------------------------------+
+
+
++-----------------------------------------+
+; Flow Settings                           ;
++-------------------+---------------------+
+; Option            ; Setting             ;
++-------------------+---------------------+
+; Start date & time ; 05/30/2016 15:14:11 ;
+; Main task         ; Compilation         ;
+; Revision Name     ; SoCkit_Linux        ;
++-------------------+---------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                                                          ;
++-------------------------------------+-------------------------------------------------------------------+---------------+--------------------------------+----------------+
+; Assignment Name                     ; Value                                                             ; Default Value ; Entity Name                    ; Section Id     ;
++-------------------------------------+-------------------------------------------------------------------+---------------+--------------------------------+----------------+
+; BLOCK_DESIGN_NAMING                 ; QuartusII                                                         ; Auto          ; --                             ; --             ;
+; COMPILER_SIGNATURE_ID               ; 35490506747667.146461405125389                                    ; --            ; --                             ; --             ;
+; EDA_OUTPUT_DATA_FORMAT              ; Vhdl                                                              ; --            ; --                             ; eda_simulation ;
+; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (VHDL)                                            ; <None>        ; --                             ; --             ;
+; HPS_ISW_FILE                        ; SoC/synthesis/submodules/sequencer/sequencer_auto_inst_init.pre.c ; --            ; SoC_hps_0_hps_io_border        ; --             ;
+; HPS_ISW_FILE                        ; SoC/synthesis/submodules/sequencer/emif.pre.xml                   ; --            ; SoC_hps_0_hps_io_border        ; --             ;
+; HPS_ISW_FILE                        ; SoC/synthesis/submodules/sequencer/sequencer_auto_ac_init.pre.c   ; --            ; SoC_hps_0_hps_io_border        ; --             ;
+; HPS_ISW_FILE                        ; SoC/synthesis/submodules/sequencer/sdram_io.pre.h                 ; --            ; SoC_hps_0_hps_io_border        ; --             ;
+; HPS_ISW_FILE                        ; SoC/synthesis/submodules/sequencer/tclrpt.pre.h                   ; --            ; SoC_hps_0_hps_io_border        ; --             ;
+; HPS_ISW_FILE                        ; SoC/synthesis/submodules/sequencer/sequencer.pre.c                ; --            ; SoC_hps_0_hps_io_border        ; --             ;
+; HPS_ISW_FILE                        ; SoC/synthesis/submodules/sequencer/sequencer.pre.h                ; --            ; SoC_hps_0_hps_io_border        ; --             ;
+; HPS_ISW_FILE                        ; SoC/synthesis/submodules/sequencer/system.pre.h                   ; --            ; SoC_hps_0_hps_io_border        ; --             ;
+; HPS_ISW_FILE                        ; SoC/synthesis/submodules/sequencer/alt_types.pre.h                ; --            ; SoC_hps_0_hps_io_border        ; --             ;
+; HPS_ISW_FILE                        ; SoC/synthesis/submodules/sequencer/sequencer_auto.pre.h           ; --            ; SoC_hps_0_hps_io_border        ; --             ;
+; HPS_ISW_FILE                        ; SoC/synthesis/submodules/sequencer/sequencer_defines.pre.h        ; --            ; SoC_hps_0_hps_io_border        ; --             ;
+; HPS_ISW_FILE                        ; SoC/synthesis/submodules/sequencer/tclrpt.pre.c                   ; --            ; SoC_hps_0_hps_io_border        ; --             ;
+; HPS_ISW_FILE                        ; SoC/synthesis/submodules/hps.pre.xml                              ; --            ; SoC_hps_0_hps_io_border        ; --             ;
+; HPS_PARTITION                       ; On                                                                ; --            ; SoC_hps_0_hps_io_border        ; --             ;
+; IP_TOOL_ENV                         ; Qsys                                                              ; --            ; SoC                            ; --             ;
+; IP_TOOL_ENV                         ; Qsys                                                              ; --            ; SoC_addr_router                ; --             ;
+; IP_TOOL_ENV                         ; Qsys                                                              ; --            ; SoC_cmd_xbar_demux             ; --             ;
+; IP_TOOL_ENV                         ; Qsys                                                              ; --            ; SoC_cmd_xbar_mux               ; --             ;
+; IP_TOOL_ENV                         ; Qsys                                                              ; --            ; SoC_hps_0                      ; --             ;
+; IP_TOOL_ENV                         ; Qsys                                                              ; --            ; SoC_hps_0_hps_io               ; --             ;
+; IP_TOOL_ENV                         ; Qsys                                                              ; --            ; SoC_id_router                  ; --             ;
+; IP_TOOL_ENV                         ; Qsys                                                              ; --            ; SoC_led                        ; --             ;
+; IP_TOOL_ENV                         ; Qsys                                                              ; --            ; SoC_rsp_xbar_demux             ; --             ;
+; IP_TOOL_ENV                         ; Qsys                                                              ; --            ; SoC_rsp_xbar_mux               ; --             ;
+; IP_TOOL_ENV                         ; Qsys                                                              ; --            ; SoC_sw                         ; --             ;
+; IP_TOOL_ENV                         ; Qsys                                                              ; --            ; altera_avalon_sc_fifo          ; --             ;
+; IP_TOOL_ENV                         ; Qsys                                                              ; --            ; altera_merlin_axi_master_ni    ; --             ;
+; IP_TOOL_ENV                         ; Qsys                                                              ; --            ; altera_merlin_burst_adapter    ; --             ;
+; IP_TOOL_ENV                         ; Qsys                                                              ; --            ; altera_merlin_slave_agent      ; --             ;
+; IP_TOOL_ENV                         ; Qsys                                                              ; --            ; altera_merlin_slave_translator ; --             ;
+; IP_TOOL_ENV                         ; Qsys                                                              ; --            ; altera_merlin_traffic_limiter  ; --             ;
+; IP_TOOL_ENV                         ; Qsys                                                              ; --            ; altera_reset_controller        ; --             ;
+; IP_TOOL_NAME                        ; Qsys                                                              ; --            ; SoC                            ; --             ;
+; IP_TOOL_NAME                        ; altera_merlin_router                                              ; --            ; SoC_addr_router                ; --             ;
+; IP_TOOL_NAME                        ; altera_merlin_demultiplexer                                       ; --            ; SoC_cmd_xbar_demux             ; --             ;
+; IP_TOOL_NAME                        ; altera_merlin_multiplexer                                         ; --            ; SoC_cmd_xbar_mux               ; --             ;
+; IP_TOOL_NAME                        ; altera_hps                                                        ; --            ; SoC_hps_0                      ; --             ;
+; IP_TOOL_NAME                        ; altera_hps_io                                                     ; --            ; SoC_hps_0_hps_io               ; --             ;
+; IP_TOOL_NAME                        ; altera_merlin_router                                              ; --            ; SoC_id_router                  ; --             ;
+; IP_TOOL_NAME                        ; altera_avalon_pio                                                 ; --            ; SoC_led                        ; --             ;
+; IP_TOOL_NAME                        ; altera_merlin_demultiplexer                                       ; --            ; SoC_rsp_xbar_demux             ; --             ;
+; IP_TOOL_NAME                        ; altera_merlin_multiplexer                                         ; --            ; SoC_rsp_xbar_mux               ; --             ;
+; IP_TOOL_NAME                        ; altera_avalon_pio                                                 ; --            ; SoC_sw                         ; --             ;
+; IP_TOOL_NAME                        ; altera_avalon_sc_fifo                                             ; --            ; altera_avalon_sc_fifo          ; --             ;
+; IP_TOOL_NAME                        ; altera_merlin_axi_master_ni                                       ; --            ; altera_merlin_axi_master_ni    ; --             ;
+; IP_TOOL_NAME                        ; altera_merlin_burst_adapter                                       ; --            ; altera_merlin_burst_adapter    ; --             ;
+; IP_TOOL_NAME                        ; altera_merlin_slave_agent                                         ; --            ; altera_merlin_slave_agent      ; --             ;
+; IP_TOOL_NAME                        ; altera_merlin_slave_translator                                    ; --            ; altera_merlin_slave_translator ; --             ;
+; IP_TOOL_NAME                        ; altera_merlin_traffic_limiter                                     ; --            ; altera_merlin_traffic_limiter  ; --             ;
+; IP_TOOL_NAME                        ; altera_reset_controller                                           ; --            ; altera_reset_controller        ; --             ;
+; IP_TOOL_VERSION                     ; 13.0sp1                                                           ; --            ; SoC                            ; --             ;
+; IP_TOOL_VERSION                     ; 13.0                                                              ; --            ; SoC_addr_router                ; --             ;
+; IP_TOOL_VERSION                     ; 13.0                                                              ; --            ; SoC_cmd_xbar_demux             ; --             ;
+; IP_TOOL_VERSION                     ; 13.0                                                              ; --            ; SoC_cmd_xbar_mux               ; --             ;
+; IP_TOOL_VERSION                     ; 13.0sp1                                                           ; --            ; SoC_hps_0                      ; --             ;
+; IP_TOOL_VERSION                     ; 13.0sp1                                                           ; --            ; SoC_hps_0_hps_io               ; --             ;
+; IP_TOOL_VERSION                     ; 13.0                                                              ; --            ; SoC_id_router                  ; --             ;
+; IP_TOOL_VERSION                     ; 13.0.1.99.2                                                       ; --            ; SoC_led                        ; --             ;
+; IP_TOOL_VERSION                     ; 13.0                                                              ; --            ; SoC_rsp_xbar_demux             ; --             ;
+; IP_TOOL_VERSION                     ; 13.0                                                              ; --            ; SoC_rsp_xbar_mux               ; --             ;
+; IP_TOOL_VERSION                     ; 13.0.1.99.2                                                       ; --            ; SoC_sw                         ; --             ;
+; IP_TOOL_VERSION                     ; 13.0                                                              ; --            ; altera_avalon_sc_fifo          ; --             ;
+; IP_TOOL_VERSION                     ; 13.0                                                              ; --            ; altera_merlin_axi_master_ni    ; --             ;
+; IP_TOOL_VERSION                     ; 13.0                                                              ; --            ; altera_merlin_burst_adapter    ; --             ;
+; IP_TOOL_VERSION                     ; 13.0                                                              ; --            ; altera_merlin_slave_agent      ; --             ;
+; IP_TOOL_VERSION                     ; 13.0                                                              ; --            ; altera_merlin_slave_translator ; --             ;
+; IP_TOOL_VERSION                     ; 13.0                                                              ; --            ; altera_merlin_traffic_limiter  ; --             ;
+; IP_TOOL_VERSION                     ; 13.0                                                              ; --            ; altera_reset_controller        ; --             ;
+; MAX_CORE_JUNCTION_TEMP              ; 85                                                                ; --            ; --                             ; --             ;
+; MIN_CORE_JUNCTION_TEMP              ; 0                                                                 ; --            ; --                             ; --             ;
+; MISC_FILE                           ; SoC/synthesis/../../SoC.cmp                                       ; --            ; --                             ; --             ;
+; MISC_FILE                           ; SoC/synthesis/../../SoC.qsys                                      ; --            ; --                             ; --             ;
+; MISC_FILE                           ; SoC/synthesis/submodules/sequencer/sequencer_auto_inst_init.pre.c ; --            ; --                             ; --             ;
+; MISC_FILE                           ; SoC/synthesis/submodules/sequencer/emif.pre.xml                   ; --            ; --                             ; --             ;
+; MISC_FILE                           ; SoC/synthesis/submodules/sequencer/sequencer_auto_ac_init.pre.c   ; --            ; --                             ; --             ;
+; MISC_FILE                           ; SoC/synthesis/submodules/sequencer/sdram_io.pre.h                 ; --            ; --                             ; --             ;
+; MISC_FILE                           ; SoC/synthesis/submodules/sequencer/tclrpt.pre.h                   ; --            ; --                             ; --             ;
+; MISC_FILE                           ; SoC/synthesis/submodules/sequencer/sequencer.pre.c                ; --            ; --                             ; --             ;
+; MISC_FILE                           ; SoC/synthesis/submodules/sequencer/sequencer.pre.h                ; --            ; --                             ; --             ;
+; MISC_FILE                           ; SoC/synthesis/submodules/sequencer/system.pre.h                   ; --            ; --                             ; --             ;
+; MISC_FILE                           ; SoC/synthesis/submodules/sequencer/alt_types.pre.h                ; --            ; --                             ; --             ;
+; MISC_FILE                           ; SoC/synthesis/submodules/sequencer/sequencer_auto.pre.h           ; --            ; --                             ; --             ;
+; MISC_FILE                           ; SoC/synthesis/submodules/sequencer/sequencer_defines.pre.h        ; --            ; --                             ; --             ;
+; MISC_FILE                           ; SoC/synthesis/submodules/sequencer/tclrpt.pre.c                   ; --            ; --                             ; --             ;
+; MISC_FILE                           ; SoC/synthesis/submodules/hps.pre.xml                              ; --            ; --                             ; --             ;
+; PARTITION_COLOR                     ; 16764057                                                          ; --            ; --                             ; Top            ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING                                             ; --            ; --                             ; Top            ;
+; PARTITION_NETLIST_TYPE              ; SOURCE                                                            ; --            ; --                             ; Top            ;
+; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                                               ; --            ; --                             ; --             ;
+; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW                             ; --            ; --                             ; --             ;
+; PROJECT_OUTPUT_DIRECTORY            ; output_files                                                      ; --            ; --                             ; --             ;
+; SLD_INFO                            ; QSYS_NAME SoC HAS_SOPCINFO 1 GENERATION_ID 1464611481             ; --            ; SoC                            ; --             ;
+; SOPCINFO_FILE                       ; SoC/synthesis/../../SoC.sopcinfo                                  ; --            ; --                             ; --             ;
+; SYNTHESIS_ONLY_QIP                  ; On                                                                ; --            ; --                             ; --             ;
++-------------------------------------+-------------------------------------------------------------------+---------------+--------------------------------+----------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Flow Elapsed Time                                                                                                        ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Analysis & Synthesis ; 00:00:18     ; 1.0                     ; 467 MB              ; 00:00:18                           ;
+; Total                ; 00:00:18     ; --                      ; --                  ; 00:00:18                           ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+
+
++------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                    ;
++----------------------+------------------+------------+------------+----------------+
+; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
++----------------------+------------------+------------+------------+----------------+
+; Analysis & Synthesis ; v-book           ; Linux Mint ; 17         ; x86_64         ;
++----------------------+------------------+------------+------------+----------------+
+
+
+------------
+; Flow Log ;
+------------
+quartus_map --read_settings_files=on --write_settings_files=off SoCkit_Linux -c SoCkit_Linux
+
+
+
